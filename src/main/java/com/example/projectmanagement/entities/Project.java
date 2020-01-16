@@ -1,9 +1,7 @@
 package com.example.projectmanagement.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Project {
@@ -18,6 +16,13 @@ public class Project {
 
     private String description;
 
+    /*@OneToMany
+    private List<Employee> employees;*/
+
+
+    @OneToMany(mappedBy = "project")
+    private List<Employee> employees;
+
     public Project(){
 
     }
@@ -26,6 +31,14 @@ public class Project {
         this.name = name;
         this.stage = stage;
         this.description = description;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     public long getProjectId() {
