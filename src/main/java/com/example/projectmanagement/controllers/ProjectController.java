@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -45,7 +46,9 @@ public class ProjectController {
         Iterable<Employee> chosenEmployees = employeeRepository.findAllById(employees);
 
         for (Employee emp : chosenEmployees){
-            emp.setProject(project);
+            List<Project> projects = new ArrayList<>();
+            projects.add(project);
+            emp.setProjects(projects);
             employeeRepository.save(emp);
         }
         return "redirect:/projects/new";

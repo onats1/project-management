@@ -1,12 +1,13 @@
 package com.example.projectmanagement.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long employeeId;
 
     private String firstName;
@@ -15,17 +16,18 @@ public class Employee {
 
     private String email;
 
-    public Project getProject() {
-        return project;
+
+    public List<Project> getProjects() {
+        return projects;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY )
-    @JoinColumn(name = "project_id")
-    private Project project;
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY )
+    @JoinTable(name = "project_employee", joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
+    private List<Project> projects;
 
     public Employee() {
 
