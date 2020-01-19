@@ -1,25 +1,12 @@
 package com.example.projectmanagement;
 
-import com.example.projectmanagement.dao.EmployeeRepository;
-import com.example.projectmanagement.dao.ProjectRepository;
-import com.example.projectmanagement.entities.Employee;
-import com.example.projectmanagement.entities.Project;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import java.util.Arrays;
 
 @SpringBootApplication
 public class ProjectManagementApplication {
 
-	@Autowired
-	ProjectRepository projectRepository;
 
-	@Autowired
-	EmployeeRepository employeeRepository;
 
 
 	public static void main(String[] args) {
