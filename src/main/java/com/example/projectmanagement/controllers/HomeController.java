@@ -4,7 +4,6 @@ import com.example.projectmanagement.dao.EmployeeRepository;
 import com.example.projectmanagement.dao.ProjectRepository;
 import com.example.projectmanagement.dto.ChartData;
 import com.example.projectmanagement.dto.EmployeeProject;
-import com.example.projectmanagement.entities.Employee;
 import com.example.projectmanagement.entities.Project;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
